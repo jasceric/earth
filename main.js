@@ -21,8 +21,8 @@ buttonActive.forEach(button => {
         this.classList.add('active');
         images.forEach(i => {
             // i.style.display = (display ? 'block' : 'none')
-            // i.classList.add('active-image')
-            // i.classList.remove('hidden-image')
+            i.classList.add('active-image')
+            i.classList.remove('hidden-image')
         })
     })
 })
