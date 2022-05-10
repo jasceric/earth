@@ -1,112 +1,51 @@
+const buttons = document.querySelectorAll('.btn');
+const images = document.querySelectorAll('.images');
+const changeText = document.querySelector('.change-text');
+  
+  buttons.forEach(button => {
+    button.addEventListener('click', el => {
+            buttons.forEach(buttonInArray => {
+                if(buttonInArray.id !== button.id) {
+                    buttonInArray.classList.remove('active')
+                }
+                else {
+                    button.classList.add('active');
+                }
+            })
 
-let activeFirstBtn = document.querySelector('.first-btn');
-let activeSecondBtn = document.querySelector('.second-btn');
-let activeThirdBtn = document.querySelector('.third-btn');
-let buttonActive = document.querySelectorAll('button');
-let images = document.querySelectorAll('images');
-
-
-
-// let display1 = activeFirstBtn.getAttribute('display')
-// let display2 = activeSecondBtn.getAttribute('display')
-// let display3 = activeThirdBtn.getAttribute('display')
-
-// console.log(document);
-// console.log(activeBtn)
-
-
-buttonActive.forEach(button => {
-    button.addEventListener('click', function() {
-        buttonActive.forEach( btn => btn.classList.remove('active'));
-        this.classList.add('active');
-        images.forEach(i => {
-            // i.style.display = (display ? 'block' : 'none')
-            i.classList.add('active-image')
-            i.classList.remove('hidden-image')
-        })
+            images.forEach(image => {
+                if(button.id == 'third-btn') {
+                    if(image.id == 'bit-map'){
+                       image.classList.remove('hidden-image')
+                       changeText.innerHTML = `
+                         The total surface area of Earth is about 510 million km2. The continental crust consists of lower density material such as the igneous rocks granite and andesite. 
+                         Less common is basalt, a denser volcanic rock that is the primary constituent of the ocean floors.
+                        `;   
+                    } else {
+                        image.classList.add('hidden-image')
+                    }
+                } else if(button.id == 'second-btn') {
+                    if(image.id == 'image-mask') {
+                        image.classList.remove('hidden-image');
+                        changeText.innerHTML = `
+                        Earth's interior, like that of the other terrestrial planets, is divided into layers by their chemical or physical (rheological) properties. 
+                        The outer layer is a chemically distinct silicate solid crust, which is underlain by a highly viscous solid mantle.
+                        `;
+                      } else {
+                        image.classList.add('hidden-image')
+                      }
+                } else {
+                    image.classList.add('hidden-image');   
+                    changeText.innerHTML = `
+                        Third planet from the Sun and the only known planet to harbor life.
+                        About 29.2% of Earth's surface is land with remaining 70.8% is covered with water.
+                        Earth's distance from the Sun, physical properties and geological history have allowed life
+                        to evolve and thrive.
+                    `;
+                }
+            })
     })
-})
-
-
-
-
-// buttonActive.forEach(button => {
-//     button.addEventListener('click', function() {
-//         buttonActive.forEach( btn => btn.classList.remove('active-image'));
-//         this.classList.add('active-image');
-//     })
-// })
-
-
-// buttonActive.forEach(button => {
-//     button.addEventListener('click', function() {
-//         buttonActive.forEach( image => image.classList.remove('hidden-image'));
-//         this.classList.add('active-image');
-//     })
-// })
-
-// images.forEach(button => {
-//     button.addEventListener('click', function() {
-//         images.forEach(imag => imag.classList.remove('hidden-image'));
-//         this.classList.add('active-image');
-//         console.log(images)
-//     })
-// })
-
-
-
-// buttonActive.forEach(button => {
-//     buttonActive.addEventListener('click', (e) => {
-//         if (e.target.matches('button')) {
-//           const i = buttonActive.indexOf(e.target);
-//           images[i].classList.toggle('hidden-image');
-//         }
-//     })
-// })
-
-
-
-
-function showImage() {
-    // console.log('click');
-    let image = document.querySelector('.image-mask');
-//     image.style.display = 'none';
-    
- 
-//     console.log(getComputedStyle(image)); 
-//     console.log(image)
-//     console.log(image.style.display)
-     
-//         if(image.style.display = 'none') {
-//             // console.log('usao u petlju')
-//               image.style.display = 'block';
-         
-//           } else {
-//               image.style.display = 'none';
-              
-//     }
-}
-
-function showBit() {
-    let imageBit = document.querySelector('.bit-map');
-    // imageBit.style.display= 'none';
-
-    // if(imageBit.style.display == 'none') {
-    //     // console.log(isActive)
-    //       imageBit.style.display = 'block';
-    //       images.classList.toggle('active')
-
-    //   } else {
-    //       imageBit.style.display = 'none';
-
-    // }
-}
-
-activeSecondBtn.addEventListener('click', showImage);
-activeThirdBtn.addEventListener('click', showBit);
-
-
-
+  })
 
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.mobile-menu')
